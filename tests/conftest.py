@@ -1,5 +1,10 @@
+import csv
+import pytest
+import re
+
 pytest_plugins = ["pytester"]
 
+"""Adds testplan option to pytest"""
 def pytest_addoption(parser):
     testplan = parser.getgroup('testplan')
     testplan.addoption("--testplan",
@@ -8,6 +13,7 @@ def pytest_addoption(parser):
         help="Generate a .csv file containing the test's metadata and exit without running tests."
     )
 
+"""The method for writing test plans to .csv file"""
 def pytest_collection_modifyitems(session, config, items):
     path = config.getoption('testplan')
     if path:
