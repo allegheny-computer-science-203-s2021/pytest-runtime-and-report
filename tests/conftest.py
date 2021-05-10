@@ -1,8 +1,17 @@
 import csv
 import pytest
 import re
+import time
 
 pytest_plugins = ["pytester"]
+
+"""Method for calculating test run times"""
+def pytest_runtest_call(item):
+    startTime = time.time()
+    print(item.runtest())
+    elapsedTime = time.time() - startTime
+    seconds = f"Operation took {elapsedTime} seconds"
+    return item.add_report_section("call", "Elapsed Time", seconds)
 
 """Adds testplan option to pytest"""
 def pytest_addoption(parser):
