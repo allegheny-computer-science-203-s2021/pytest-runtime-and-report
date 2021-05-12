@@ -1,0 +1,8 @@
+title,description,markers
+test_foo.py::test_foo,This is the foo test,performance
+test_foo.py::test_bar,The bar test,high
+test_foo.py::test_baz,"The baz test
+    Make sure we get multiline formatting right.",
+test_foo.py::TestFoo::test_a,"The TestFoo.a test
+        Make it a multiline docstring.","performance,high"
+test_foo.py::TestFoo::test_b,The TestFoo.b test,
