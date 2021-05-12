@@ -20,11 +20,6 @@ def test_baz():
     """
     assert True
 
-def test_collection_modifyitems():
-    """this tests the method in conftest"""
-    col = pytest.exit(f"Generated test plan: ")
-    assert col
-
 class TestFoo():
 
     @pytest.mark.high
@@ -38,3 +33,8 @@ class TestFoo():
     def test_b(self):
         """The TestFoo.b test"""
         assert True
+
+def test_collection_modifyitems():
+    """this tests the method in conftest"""
+    col = pytest.exit(f"Generated test plan: ")
+    assert col
