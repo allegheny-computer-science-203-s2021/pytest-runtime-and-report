@@ -1,6 +1,7 @@
 import csv
 import pytest
 import re
+import json
 
 pytest_plugins = ["pytester"]
 test_runtime = {}
@@ -47,4 +48,5 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     for reps in terminalreporter.stats.values():
         for rep in reps:
             test_runtime[rep.nodeid] = rep.duration
-    print("Test Run Time: ", test_runtime)
+    with open("test_times.json", "w") as outfile:
+        json.dump(test_runtime, outfile, indent=4)
