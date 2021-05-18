@@ -40,6 +40,8 @@ def pytest_collection_modifyitems(session, config, items):
 def pytest_terminal_summary(terminalreporter, exitstatus, config):
     for reps in terminalreporter.stats.values():
         for rep in reps:
-            test_runtime[rep.nodeid] = rep.duration
+            if rep.when == "call":
+                test_runtime[rep.nodeid] = rep.duration
+    print("\nExported test runtimes to test_times.json")
     with open("test_times.json", "w") as outfile:
         json.dump(test_runtime, outfile, indent=4)
