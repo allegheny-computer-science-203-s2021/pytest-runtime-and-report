@@ -1,4 +1,5 @@
 import pytest
+import time
 
 import conftest
 
@@ -18,6 +19,21 @@ def test_baz():
     """The baz test
     Make sure we get multiline formatting right.
     """
+    assert True
+
+def test_short():
+    """Test for a short amount of time"""
+    time.sleep(3)
+    assert True
+
+def test_long():
+    """Test for a long amount of time"""
+    time.sleep(7)
+    assert True
+
+def test_longer():
+    """Test for a longer amount of time"""
+    time.sleep(12)
     assert True
 
 class TestFoo():

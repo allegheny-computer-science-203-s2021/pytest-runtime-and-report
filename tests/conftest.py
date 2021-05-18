@@ -1,8 +1,10 @@
 import csv
 import pytest
 import re
+import json
 
 pytest_plugins = ["pytester"]
+test_runtime = {}
 
 """Adds testplan option to pytest"""
 def pytest_addoption(parser):
@@ -33,3 +35,11 @@ def pytest_collection_modifyitems(session, config, items):
                 writer.writerow([title, description, markers])
 
         pytest.exit(f"Generated test plan: {path}")
+
+"""Record test name and test duration in a list, and export to json"""
+def pytest_terminal_summary(terminalreporter, exitstatus, config):
+    for reps in terminalreporter.stats.values():
+        for rep in reps:
+            test_runtime[rep.nodeid] = rep.duration
+    with open("test_times.json", "w") as outfile:
+        json.dump(test_runtime, outfile, indent=4)
