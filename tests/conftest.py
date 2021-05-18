@@ -6,14 +6,6 @@ import json
 pytest_plugins = ["pytester"]
 test_runtime = {}
 
-# """Method for calculating test run times"""
-# def pytest_runtest_call(item):
-#     startTime = time.time()
-#     print(item.runtest())
-#     elapsedTime = time.time() - startTime
-#     seconds = f"Operation took {elapsedTime} seconds"
-#     return item.add_report_section("call", "Elapsed Time", seconds)
-
 """Adds testplan option to pytest"""
 def pytest_addoption(parser):
     testplan = parser.getgroup('testplan')
@@ -44,6 +36,7 @@ def pytest_collection_modifyitems(session, config, items):
 
         pytest.exit(f"Generated test plan: {path}")
 
+"""Record test name and test duration in a list, and export to json"""
 def pytest_terminal_summary(terminalreporter, exitstatus, config):
     for reps in terminalreporter.stats.values():
         for rep in reps:
