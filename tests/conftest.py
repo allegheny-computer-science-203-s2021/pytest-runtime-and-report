@@ -1,17 +1,17 @@
 import csv
 import pytest
 import re
-import time
 
 pytest_plugins = ["pytester"]
+test_runtime = {}
 
-"""Method for calculating test run times"""
-def pytest_runtest_call(item):
-    startTime = time.time()
-    print(item.runtest())
-    elapsedTime = time.time() - startTime
-    seconds = f"Operation took {elapsedTime} seconds"
-    return item.add_report_section("call", "Elapsed Time", seconds)
+# """Method for calculating test run times"""
+# def pytest_runtest_call(item):
+#     startTime = time.time()
+#     print(item.runtest())
+#     elapsedTime = time.time() - startTime
+#     seconds = f"Operation took {elapsedTime} seconds"
+#     return item.add_report_section("call", "Elapsed Time", seconds)
 
 """Adds testplan option to pytest"""
 def pytest_addoption(parser):
@@ -42,3 +42,9 @@ def pytest_collection_modifyitems(session, config, items):
                 writer.writerow([title, description, markers])
 
         pytest.exit(f"Generated test plan: {path}")
+
+def pytest_terminal_summary(terminalreporter, exitstatus, config):
+    for reps in terminalreporter.stats.values():
+        for rep in reps:
+            test_runtime[rep.nodeid] = rep.duration
+    print("Test Run Time: ", test_runtime)
