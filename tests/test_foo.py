@@ -1,6 +1,8 @@
 import pytest
 import time
 
+import conftest
+
 # Sampled from Darlene Wong's presenation for PyOhio 2019 for testing purposes with modifications
 
 @pytest.mark.performance
@@ -47,3 +49,7 @@ class TestFoo():
     def test_b(self):
         """The TestFoo.b test"""
         assert True
+
+def test_collection_modifyitems():
+    """this tests the method in conftest"""
+    assert True
