@@ -9,8 +9,7 @@ setup(
     version='0.1.0',
     description='A pytest plugin to ....',
     url='https://github.com/allegheny-computer-science-203-s2021/pytest-runtime-and-report',
-    author='Zack Devers, Wesley Long, Peter Snipes, Abigail Waryanka, Kai\'lani Woodard,'
-    author_email=', solisa@allegheny.edu, donizk@allegheny.edu, leek3@allegheny.edu, shinomiyaa@allegheny.edu',
+    author='Zack Devers, Wesley Long, Peter Snipes, Abigail Waryanka, Kai lani Woodard',
     license='MIT',
     py_modules=['plugin'],
     install_requires=['pytest'],
