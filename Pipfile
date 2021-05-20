@@ -6,12 +6,8 @@ verify_ssl = true
 [packages]
 pytest = "*"
 setuptools = "*"
-coverage = "*"
 
 [dev-packages]
-black = "*"
-pylint = "*"
-flake8 = "*"
 
 [requires]
 python_version = "3.6 , 3.8.8"
