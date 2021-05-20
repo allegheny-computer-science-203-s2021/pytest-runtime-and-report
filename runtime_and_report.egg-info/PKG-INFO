@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: runtime-and-report
+Version: 0.0.1
+Summary: A pytest plugin to determine runtimes of pytests and also report the pytest results to a .csv file.
+Home-page: https://github.com/allegheny-computer-science-203-s2021/pytest-runtime-and-report
+Author: Zack Devers, Wesley Long, Peter Snipes, Abigail Waryanka, Kai lani Woodard
+Author-email: deversz@allegheny.edu,longw@allegheny.edu, snipesp@allegheny.edu, waryankaa@allegheny.edu, woodardk@allegheny.edu
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
