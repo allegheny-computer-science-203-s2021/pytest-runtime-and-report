@@ -9,7 +9,7 @@
 
 ## Introduction
 
-[Pytest Runtime and Report])(https://test.pypi.org/project/runtime-and-report/0.0.1/) is a pytest plugin that sorts the pytests by runtime and then executes them from shortest to longest. It also produces a csv file with the results from running the test cases.
+[Pytest-Runtime-and-Report](https://test.pypi.org/project/runtime-and-report/0.0.1/) is a pytest plugin that sorts the pytests by runtime and then executes them from shortest to longest. It also produces a csv file with the results from running the test cases.
 
 ## Objectives
 
